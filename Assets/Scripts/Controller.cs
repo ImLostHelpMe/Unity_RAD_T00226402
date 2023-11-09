@@ -48,7 +48,7 @@ public class Controller : MonoBehaviour
         #endregion
 
         #region Handles Jumping
-        if (Input.GetButton("jump") && canMove && characterController.isGrounded)
+        if (Input.GetKey(KeyCode.Space) && canMove && characterController.isGrounded)
         {
             moveDirection.y = jumpPower;
         }
@@ -71,7 +71,7 @@ public class Controller : MonoBehaviour
         if (canMove)
         {
             rotationX += -Input.GetAxis("Mouse Y") * lookSpeed;
-            rotationX = Mathf.Clamp01(rotationX, -lookXLimit, lookXLimit);
+            rotationX = Mathf.Clamp(rotationX, -lookXLimit, lookXLimit);
             playerCamera.transform.localRotation = Quaternion.Euler(rotationX, 0, 0);
             transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * lookSpeed, 0);
         }
