@@ -20,4 +20,5 @@ public class NewBehaviourScript : MonoBehaviour
     {
         enemy.SetDestination(player.position);
     }
+
 }
